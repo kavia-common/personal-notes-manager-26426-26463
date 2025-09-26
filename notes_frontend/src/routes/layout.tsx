@@ -1,6 +1,12 @@
-import { component$, Slot, useStyles$ } from "@builder.io/qwik";
-import type { RequestHandler } from "@builder.io/qwik-city";
-import styles from "./styles.css?inline";
+import {
+  component$,
+  Slot,
+  createContextId,
+  useContextProvider,
+} from '@builder.io/qwik';
+import type { RequestHandler } from '@builder.io/qwik-city';
+import { useNotesStore, type UseNotesStoreReturn } from '~/store/note-store';
+import { Sidebar } from '~/components/sidebar/sidebar';
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   cacheControl({
@@ -9,12 +15,22 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   });
 };
 
+export const NoteStoreContext =
+  createContextId<UseNotesStoreReturn>('note-store-context');
+
 // PUBLIC_INTERFACE
 export default component$(() => {
-  useStyles$(styles);
+  const notesStore = useNotesStore();
+  useContextProvider(NoteStoreContext, notesStore);
+
+  // No need to import styles.css here, global.css handles layout
+
   return (
-    <main>
-      <Slot />
-    </main>
+    <div class="app-container">
+      <Sidebar />
+      <main class="main-content">
+        <Slot />
+      </main>
+    </div>
   );
 });

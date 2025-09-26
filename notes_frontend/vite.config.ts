@@ -42,7 +42,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
     //         // If a dep-of-dep needs to be external, add it here
     //         // For example, if something uses `bcrypt` but you don't have it as a dep, you can write
     //         // external: [...Object.keys(dependencies), 'bcrypt']
-    //         external: Object.keys(dependencies),
+    //         // external: Object.keys(dependencies),
     //       }
     //     : undefined,
 
@@ -53,7 +53,6 @@ export default defineConfig(({ command, mode }): UserConfig => {
       },
       port: 3000,
       host: '0.0.0.0',
-      allowedHosts: ['.kavia.ai'],
     },
     preview: {
       headers: {

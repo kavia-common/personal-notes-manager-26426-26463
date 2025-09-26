@@ -1,15 +1,19 @@
 /**
  * WHAT IS THIS FILE?
  *
- * Globally applied styles for the ultralight Qwik template.
- * Uses a minimalistic light theme with specified color scheme.
+ * Globally applied styles for the Ocean Professional theme.
  */
 
 :root {
-  --primary-color: #000000;
-  --secondary-color: #333333;
-  --accent-color: #0078d4;
-  --background-color: #ffffff;
+  --primary-color: #2563EB; /* blue-600 */
+  --secondary-color: #F59E0B; /* amber-500 */
+  --success-color: #10B981; /* green-500 */
+  --error-color: #EF4444; /* red-500 */
+  --background-color: #f9fafb; /* gray-50 */
+  --surface-color: #ffffff;
+  --text-primary-color: #111827; /* gray-900 */
+  --text-secondary-color: #6b7280; /* gray-500 */
+  --border-color: #e5e7eb; /* gray-200 */
 }
 
 html {
@@ -32,10 +36,34 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--background-color);
-  color: var(--primary-color);
+  color: var(--text-primary-color);
   line-height: inherit;
+  overflow: hidden;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  height: 100vh;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  .main-content {
+    padding: 1rem;
+  }
 }

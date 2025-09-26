@@ -1,0 +1,112 @@
+.sidebar {
+  width: 320px;
+  height: 100vh;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  background: linear-gradient(to bottom, var(--primary-color, #2563eb) / 5%, var(--background-color, #f9fafb) 30%);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary-color);
+  margin: 0;
+}
+
+.new-note-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.new-note-btn:hover {
+  background: #1D4ED8; /* darken blue */
+  transform: translateY(-2px);
+}
+
+.notes-list {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 0.5rem;
+}
+
+.empty-list-message {
+  text-align: center;
+  color: var(--text-secondary-color);
+  padding: 2rem;
+}
+
+.note-item {
+  display: block;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border: 1px solid transparent;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.note-item:hover {
+  background-color: hsl(224, 76%, 97%);
+}
+
+.note-item.active {
+  background-color: hsl(224, 76%, 94%);
+  border-left: 4px solid var(--primary-color);
+}
+
+.note-item-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-item-excerpt {
+  font-size: 0.875rem;
+  color: var(--text-secondary-color);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.note-item-date {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-secondary-color);
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 40vh;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+}
